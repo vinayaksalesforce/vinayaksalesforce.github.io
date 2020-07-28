@@ -46,7 +46,7 @@
 		);
 	};
 
-	if (!window.embedded_svc) {
+	if (typeof window.embedded_svc == 'object') {
 		var s = document.createElement('script');
 		s.setAttribute('src', 'https://vinayak-dev-ed.my.stmfa.stm.salesforce.com/embeddedservice/5.0/esw.min.js');
 		s.onload = function() {

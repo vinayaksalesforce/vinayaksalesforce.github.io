@@ -45,7 +45,8 @@
 				);
 			};
 
-			if (typeof window.embedded_svc == 'object') {
+// 			if (typeof window.embedded_svc == 'object') {
+ 			if (!window.embedded_svc) {			
 				var s = document.createElement('script');
 				s.setAttribute('src', 'https://dxx0000006gkheam-dev-ed.localhost.internal.salesforce.com:7443/embeddedservice/5.0/esw.min.js');
 				s.onload = function() {

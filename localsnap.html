@@ -1,0 +1,61 @@
+<html>
+	<head></head>
+	<body>
+		<style type='text/css'>
+			.embeddedServiceHelpButton .helpButton .uiButton {
+				background-color: #005290;
+				font-family: "Arial", sans-serif;
+			}
+			.embeddedServiceHelpButton .helpButton .uiButton:focus {
+				outline: 1px solid #005290;
+			}
+		</style>
+
+		<script type='text/javascript'>
+			var initESW = function(gslbBaseURL) {
+				embedded_svc.settings.displayHelpButton = true; //Or false
+				embedded_svc.settings.language = ''; //For example, enter 'en' or 'en-US'
+
+				//embedded_svc.settings.defaultMinimizedText = '...'; //(Defaults to Chat with an Expert)
+				//embedded_svc.settings.disabledMinimizedText = '...'; //(Defaults to Agent Offline)
+
+				//embedded_svc.settings.loadingText = ''; //(Defaults to Loading)
+				//embedded_svc.settings.storageDomain = 'yourdomain.com'; //(Sets the domain for your deployment so that visitors can navigate subdomains during a chat session)
+
+				// Settings for Field Service
+
+				embedded_svc.settings.enabledFeatures = ['FieldService'];
+				embedded_svc.settings.entryFeature = 'FieldService';
+
+				embedded_svc.settings.useCustomAuthentication = false;
+				embedded_svc.settings.loginClientId = '3MVG9AOp4kbriZOJCo9xqFL48R2XOoVuQeGGBMWfCbDBLn8pTy4Lzoa_CgxvjZWrgvDLyWmKeBMbKRmmyRGJB';
+				embedded_svc.settings.loginRedirectURL = 'https://vinayaksalesforce.github.io/localcallback.html';
+				embedded_svc.settings.loginTargetQuerySelector = '#salesforce-login';
+				embedded_svc.settings.authenticationStartLabel = 'Authenticated!';
+
+				embedded_svc.init(
+					'https://dxx0000006gkheam-dev-ed.localhost.internal.salesforce.com:7443',
+					'https://vinayak-developer-edition.vinayakraj-wsl1.t.force.com:7443',
+					gslbBaseURL,
+					'00Dxx0000006GKh',
+					'Inbound',
+					{
+						
+					}
+				);
+			};
+
+			if (typeof window.embedded_svc == 'object') {
+				var s = document.createElement('script');
+				s.setAttribute('src', 'https://dxx0000006gkheam-dev-ed.localhost.internal.salesforce.com:7443/embeddedservice/5.0/esw.min.js');
+				s.onload = function() {
+					initESW(null);
+				};
+				document.body.appendChild(s);
+			} else {
+				initESW('https://service.force.com');
+			}
+		</script>	
+		<div id="salesforce-login"></div>
+	</body>
+</html>
